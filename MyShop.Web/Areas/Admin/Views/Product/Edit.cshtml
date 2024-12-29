@@ -1,0 +1,70 @@
+﻿@model ProductVM
+
+@{
+	ViewBag.PageTitle = "Product Mangement";
+	ViewBag.CardTitle = "Edit Product";
+}
+
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Edit" method="post" enctype="multipart/form-data">
+			<input hidden asp-for="Product.Id" />
+			<input hidden asp-for="Product.Img" />
+			<div class="mb-3">
+				<label asp-for="Product.Name"></label>
+				<input asp-for="Product.Name" class="form-control" />
+				<span asp-validation-for="Product.Name" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<label asp-for="Product.Description"></label>
+				<textarea id="mytextarea" asp-for="Product.Description" class="form-control" > </textarea>
+				<span asp-validation-for="Product.Description" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<label asp-for="Product.Price"></label>
+				<input asp-for="Product.Price" class="form-control" />
+				<span asp-validation-for="Product.Price" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<label asp-for="Product.Img"></label>
+				<input type="file" name="file" id="imgfile" class="form-control" />
+			</div>
+			<div class="mb-3">
+				<label asp-for="Product.CategoryId"></label>
+				<select asp-for="Product.CategoryId" asp-items="Model.CategoryList" class="form-control">
+					<option disabled selected>-- Select Category --</option>
+				</select>
+			</div>
+			<div class="mb-3">
+				<button type="submit" class="btn btn-success">Save</button>
+			</div>
+		</form>
+	</div>
+	<div class="col-md-4">
+		<div class="container">
+			<img src="~/@Model.Product.Img" alt="Product Image" width="350" height="350" />
+		</div>
+	</div>
+</div>
+
+
+
+<div>
+	<a asp-action="Index" class="btn btn-warning">Back to Index</a>
+</div>
+
+<!-- Client Side Validation -->
+<!-- Use JavaScript libs -->
+@section Scripts
+{
+	
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	<script>
+		new FroalaEditor('#mytextarea', {
+
+		  toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', 'fontFamily', 'fontSize', '|', 'paragraphFormat', 'align', 'undo', 'redo']
+		})
+	</script>
+}

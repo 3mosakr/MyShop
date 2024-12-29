@@ -1,0 +1,31 @@
+﻿<!-- Resive data from view call -->
+
+@{
+    ViewBag.PageTitle = "Product Mangement";
+    ViewBag.CardTitle = "Product List";
+}
+
+
+<div>
+    <a href="/Admin/Product/Create" class="btn btn-primary">Create</a>
+</div>
+<br />
+
+<table id="productsTable" class="table table-hover" width="100%">
+    <thead>
+		<tr>
+			<td>Name</td>
+			<td>Description</td>
+			<td>Price</td>
+			<td>Category</td>
+			<td>Actions</td>
+		</tr>
+    </thead>
+
+</table>
+
+<!-- data will gained from js -->
+@section Scripts
+{
+	<script src="~/js/products.js"></script>
+}
