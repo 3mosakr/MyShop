@@ -1,0 +1,6 @@
+URL: https://admin.monsterasp.net
+E-mail: sakr364@outlook.com
+Password: r#9S2M@bt4G%
+
+
+    //"DefaultConnection": "Server=db12050.databaseasp.net; Database=db12050; User Id=db12050; Password=2Tf=@4Jt8Yq#; Encrypt=False; MultipleActiveResultSets=True;",
